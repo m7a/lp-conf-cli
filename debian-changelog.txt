@@ -1,0 +1,6 @@
+mdvl-conf-cli (1.0.0) stable; urgency=medium
+
+  * Package created with MDPC 2.
+    Replaces parts of legacy mdvl-scripts and mdvl-conf packages.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Fri, 21 Aug 2020 01:47:28 +0200
