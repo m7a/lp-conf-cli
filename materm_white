@@ -1,0 +1,13 @@
+#!/bin/sh -e
+# materm_white, Copyright (c) 2016 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+exec /usr/bin/materm -fn terminus-bold-24 -tn rxvt \
+	--foreground Black --background White \
+	--color0 White \
+	--color1 Red1 --color2 Green1 --color3 Yellow4 --color4 Blue4 \
+	--color5 Magenta1 --color6 Cyan3 --color7 Black \
+	--color8 Gray50 --color9 Red4 --color10 Green4 --color11 Yellow4 \
+	--color12 Blue4 --color13 Magenta4 --color14 Cyan4 \
+	--color15 Black \
+	"$@"

@@ -1,0 +1,7 @@
+#!/bin/sh -e
+# Ma_Sys.ma preferred terminal 1.0.1, Copyright (c) 2014, 2019, 2020 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+exec /usr/bin/urxvt +sb +bc -bg black -fg white -sl 6000 +uc -fn terminus-18 \
+				-ptab -tcw -bc +pb -cr white \
+				-bd black -b 0 +bl -cr yellow -si -sw -sk "$@"

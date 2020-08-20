@@ -1,0 +1,20 @@
+#!/bin/sh -e
+# Ma_Sys.ma RSYNC Wrapper Script, Version 1.0.0.0, Copyright (c) 2015 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+#
+# USAGE rsync_ma [options] src dest
+#
+# This script is designed to synchronize two directories so that the second
+# directory contains an exact copy of the first directory. Thus, it deletes
+# files in the destination directory if necessary.
+
+RSYNC_ARGS="-vrlpEogDtS --delete --delete-after --stats -h --progress -i"
+
+if [ $# -lt 2 ]; then
+	head -n 9 "$0" | tail -n 8 | cut -c 3-
+	echo
+	echo OPTIONS $RSYNC_ARGS
+	exit 1
+else
+	exec rsync $RSYNC_ARGS "$@"
+fi

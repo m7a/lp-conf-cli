@@ -1,0 +1,141 @@
+" Customized Ma_Sys.ma VIMRC 1.0.25,
+" Copyright (c) 2013--2015, 2017, 2019 Ma_Sys.ma.
+" For further info send an e-mail to Ma_Sys.ma@web.de.
+
+runtime! debian.vim
+set nocompatible
+set backspace=indent,eol,start  " more powerful backspacing
+set history=400                 " keep 50 lines of command line history
+set ruler                       " show the cursor position all the time
+
+if filereadable("/usr/share/mdvl/d5man/d5manaddrc.vim")
+	source /usr/share/mdvl/d5man/d5manaddrc.vim
+endif
+
+if has("syntax")
+	syntax on
+	syntax sync minlines=256
+	autocmd BufNewFile,BufRead *.ma setfiletype masysma_note
+endif
+
+set background=dark
+
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+	source /etc/vim/vimrc.local
+endif
+
+" Use \te to play tetris
+if filereadable("/usr/share/mdvl/tetris.vim")
+	source /usr/share/mdvl/tetris.vim
+elseif filereadable("tetris.vim")
+	source tetris.vim
+endif
+
+" HEX Editing using :Hexmode copied from
+" http://vim.wikia.com/wiki/Improved_hex_editing
+" ex command for toggling hex mode - define mapping if desired
+command -bar Hexmode call ToggleHex()
+" helper function to toggle hex mode
+" If you really need a hex-editor, do not use this. Use dhex instead (unless
+" you are under windows, then you are out of luck)!
+function ToggleHex()
+	" hex mode should be considered a read-only operation
+	" save values for modified and read-only for restoration later,
+	" and clear the read-only flag for now
+	let l:modified=&mod
+	let l:oldreadonly=&readonly
+	let &readonly=0
+	let l:oldmodifiable=&modifiable
+	let &modifiable=1
+	if !exists("b:editHex") || !b:editHex
+		" save old options
+		let b:oldft=&ft
+		let b:oldbin=&bin
+		" set new options
+		setlocal binary " make sure it overrides any textwidth, etc.
+		let &ft="xxd"
+		" set status
+		let b:editHex=1
+		" switch to hex editor
+		%!xxd
+	else
+		" restore old options
+		let &ft=b:oldft
+		if !b:oldbin
+		setlocal nobinary
+		endif
+		" set status
+		let b:editHex=0
+		" return to normal editing
+		%!xxd -r
+	endif
+	" restore values for modified and read only state
+	let &mod=l:modified
+	let &readonly=l:oldreadonly
+	let &modifiable=l:oldmodifiable
+endfunction
+
+set printfont=courier:h9 " Smaller printing font size
+set printoptions=formfeed:y,paper:a4
+set hlsearch
+highlight Search ctermbg=LightGreen
+set title
+set showcmd
+" Copied from http://dougblack.io/words/a-good-vimrc.html
+set wildmenu
+set lazyredraw
+" Copied from http://amix.dk/vim/vimrc.html
+set noerrorbells
+set tm=500
+set ffs=unix,dos,mac
+set laststatus=2
+" disable bells
+set vb t_vb=
+" http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-
+" 								performance
+set nocursorcolumn
+set nocursorline
+
+if exists("+colorcolumn")
+	set colorcolumn=80
+	hi ColorColumn ctermbg=DarkBlue
+endif
+
+set numberwidth=6
+set nonumber
+highlight LineNr cterm=NONE ctermbg=DarkGray ctermfg=White
+
+" http://stackoverflow.com/questions/13093289/gvim-dynamically-change-font-
+" 							based-on-window-size
+function MaAutomaticLineNumbers()
+	if winwidth(0) > 86
+		set number
+	else
+		set nonumber
+	endif
+endfunction
+
+set mouse=i
+
+if has("gui_running")
+	" http://stackoverflow.com/questions/4229658/why-some-people-use-if-
+	" 					hasgui-running-in-a-gvimrc
+	set number
+	" http://eclim.org/eclimd.html#eclimd-headless
+	set guioptions=cf
+	set guioptions-=m " No menu
+	set guioptions-=T " No toolbar
+	set t_Co=8
+	" TODO Find better colorscheme
+	" Ideally, it should look exactly like in the terminal in `gvim`
+	color koehler
+else
+	autocmd VimResized * call MaAutomaticLineNumbers()
+	" hack, WinResized would be better
+	autocmd WinEnter * call MaAutomaticLineNumbers()
+	call MaAutomaticLineNumbers()
+endif
+
+" Skip unwanted new Debian Stretch defaults (incsearch, autoindent), 2017/07/15
+let skip_defaults_vim=1

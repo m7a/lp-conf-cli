@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+
+<!-- APPLICATION METADATA -->
+<property name="masysma.target"     value="_"/>
+<property name="mdpc.name"          value="mdvl-conf-cli"/>
+<property name="mdpc.section"       value="admin"/>
+<property name="mdpc.arch"          value="all"/>
+<property name="mdpc.depends"       value="mdvl-syssheet"/>
+<property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215)"/>
+<property name="mdpc.descrs"        value="MDVL Basic CLI Configuration Package"/>
+<property name="mdpc.bdep"          value="config-package-dev"/>
+<property name="mdpc.file.install">
+materm /usr/bin
+materm_white /usr/bin
+ctrlc /usr/bin
+ctrlv /usr/bin
+rsync_ma /usr/bin
+99masysma.conf /etc/apt/apt.conf.d
+smartmontools.mdvl /etc/default
+masysma-intel-virtualization.conf /etc/modprobe.d
+masysma_bashrc.sh /etc/profile.d
+zz-live-config_xinit.sh /etc/profile.d
+config.mdvl /etc/subversion
+masysma.conf /etc/sysctl.d
+logind.conf.mdvl /etc/systemd
+vimrc.mdvl /etc/vim
+papersize.mdvl /etc
+getty@.service.mdvl /lib/systemd/system
+helpful_issue /usr/share/mdvl-conf-cli
+</property>
+<property name="mdpc.file.displace">
+etc/default/smartmontools.mdvl
+etc/subversion/config.mdvl
+etc/systemd/logind.conf.mdvl
+etc/vim/vimrc.mdvl
+etc/papersize.mdvl
+lib/systemd/system/getty@.service.mdvl
+</property>
+<property name="mdpc.descrl">
+ This package contains configuration files for commandline systems.
+ Some scripts which are essentially aliases for existing commands are provided.
+ Additionally, some of the contained data is only useful in conjunction with
+ GUI systems but provided on CLI systems as well for reference purposes.
+ .
+ Not all packages needed to run all aliases etc. are listed as dependencies as
+ these dependencies are expected to be declared by other MDVL packages.
+</property>
+
+<!-- CI INTEGRATION -->
+<target name="package_triggered" depends="package">
+	<property name="masysma.ci.trigger" value="newver"/>
+</target>
+
+<!-- CONST TPL IMPORT -->
+<property environment="env"/>
+<condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else=".."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
+<property name="masysma.internal.includepath" location="${masysma.internal.includepath.rel}"/>
+<property name="masysma.internal.loadpath" value="${masysma.internal.includepath}/co-build/ant-build-template.xml"/>
+<condition property="masysma.internal.load" value="file://${masysma.internal.loadpath}" else="https://raw.githubusercontent.com/m7a/co-build/master/ant-build-template.xml"><resourceexists><file file="${masysma.internal.loadpath}"/></resourceexists></condition>
+<import><url url="${masysma.internal.load}"/></import>
+
+</project>
