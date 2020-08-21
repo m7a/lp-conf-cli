@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.2) stable; urgency=medium
+
+  * Fix systemd override file to replace instead of append.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Fri, 21 Aug 2020 21:21:54 +0200
+
 mdvl-conf-cli (1.0.1) stable; urgency=medium
 
   * Attempt to fix error on Debian sid wrt. getty@.serivce no longer working
