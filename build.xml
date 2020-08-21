@@ -26,7 +26,7 @@ masysma.conf /etc/sysctl.d
 logind.conf.mdvl /etc/systemd
 vimrc.mdvl /etc/vim
 papersize.mdvl /etc
-10-masysma.conf /lib/systemd/system/getty@.service.d
+90-masysma.conf /lib/systemd/system/getty@.service.d
 helpful_issue /usr/share/mdvl-conf-cli
 </property>
 <property name="mdpc.file.displace">
