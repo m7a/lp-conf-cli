@@ -2,7 +2,7 @@
 section: 32
 x-masysma-name: mdvl-conf-cli
 title: MDVL Basic CLI Configuration Package
-date: 2020/01/01 00:00:00
+date: 2020/08/23 00:46:15
 lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "conf", "dotfiles", "cli", "package"]
