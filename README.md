@@ -307,7 +307,7 @@ System-Wide Configuration
 Files `90-masysma.conf` and `helpful_issue` customize the Linux console login
 screen to look similar to the following screenshot:
 
-![Screenshot of the Linux console login as configured by this package](mdvl-conf-cli_att/scrlogin.png)
+![Screenshot of the Linux console login as configured by this package](conf-cli_att/scrlogin.png)
 
 ## Intel Virtualization
 
