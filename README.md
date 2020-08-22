@@ -1,6 +1,6 @@
 ---
 section: 32
-x-masysma-name: mdvl-conf-cli
+x-masysma-name: conf-cli
 title: MDVL Basic CLI Configuration Package
 date: 2020/08/23 00:46:15
 lang: en-US
@@ -8,7 +8,7 @@ author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "conf", "dotfiles", "cli", "package"]
 x-masysma-version: 1.0.0
 x-masysma-repository: https://www.github.com/m7a/lp-conf-cli
-x-masysma-website: https://masysma.lima-city.de/32/mdvl-conf-cli.xhtml
+x-masysma-website: https://masysma.lima-city.de/32/conf-cli.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2020 Ma_Sys.ma.
