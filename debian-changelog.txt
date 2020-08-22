@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.3) stable; urgency=medium
+
+  * Add new prompt color to masysma_bashrc.sh, add system-wide tmux.conf.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sun, 23 Aug 2020 00:42:26 +0200
+
 mdvl-conf-cli (1.0.2) stable; urgency=medium
 
   * Fix systemd override file to replace instead of append.

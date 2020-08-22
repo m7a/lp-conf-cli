@@ -1,4 +1,4 @@
-# Ma_Sys.ma Bashrc 2.0.1, Copyright (c) 2013-2017, 2019, 2020 Ma_Sys.ma.
+# Ma_Sys.ma Bashrc 2.0.2, Copyright (c) 2013-2017, 2019, 2020 Ma_Sys.ma.
 # For further info send an e-mail to Ma_Sys.ma@web.de
 
 [ -n "$PS1" ] || return # Terminate when not running interactively
@@ -29,7 +29,10 @@ set -o vi
 if [ -z "$MAEM_RES" ]; then
 	ma_host_tmp="$(who -m | cut -d "(" -f 2 | tr -d ")" | cut -d "." -f 1)"
 	ma_tty_tmp="$(echo $ma_host_tmp | cut -d " " -f 2 | cut -c -3)"
-	if [ -z "$ma_host_tmp" -o "$ma_host_tmp" = ":0" -o \
+	if [ -e /.dockerenv ] || { [ -x /usr/bin/ischroot ] && ischroot; }; then
+		# container
+		export PS1='\[\033[36;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
+	elif [ -z "$ma_host_tmp" -o "$ma_host_tmp" = ":0" -o \
 						"$ma_tty_tmp" = "tty" ]; then
 		# local
 		export PS1='\[\033[33;40;1m\]\w\$\[\033]0;\w\$\007\033[00m\] '
@@ -95,7 +98,7 @@ alias grep="grep --color=auto"
 alias sysus="systemctl --no-pager --user"
 # disable pagers
 alias journalctl="journalctl --no-pager"
-alias systemctl="systemctl --no-pager"
+alias systemctl="systemctl -l --no-pager"
 [ ! -f "$JAVA_HOME/bin/java" ] || alias java="$JAVA_HOME/bin/java"
 alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
 
