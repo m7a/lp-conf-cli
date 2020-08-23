@@ -29,7 +29,7 @@ papersize.mdvl /etc
 90-masysma.conf /lib/systemd/system/getty@.service.d
 helpful_issue /usr/share/mdvl-conf-cli
 tmux.conf /etc
-vifmrc /etc
+vifmrc /etc/vifm
 </property>
 <property name="mdpc.file.displace">
 etc/default/smartmontools.mdvl
