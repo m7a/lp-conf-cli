@@ -1,4 +1,4 @@
-" Ma_Sys.ma VIFMRC 3.1.5, Copyright (c) 2013, 2017, 2018, 2020 Ma_Sys.ma.
+" Ma_Sys.ma VIFMRC 3.1.6, Copyright (c) 2013, 2017, 2018, 2020 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 " -- General Settings --
@@ -64,8 +64,8 @@ command make !make
 if has('unix')
 	command thunar !thunar &
 	command extract !atool -x %c &
-	command mount !/usr/share/mdvl-vifm-ext/mavifmext_reduced.sh mount
-	command umount !/usr/share/mdvl-vifm-ext/mavifmext_reduced.sh umount %c
+	command mount !/usr/bin/mavifmext_reduced.sh mount
+	command umount !/usr/bin/mavifmext_reduced.sh umount %c
 endif
 
 " -- Ma_Sys.ma Mappings --

@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.6) stable; urgency=medium
+
+  * Change path to mavifmext_reduced.sh
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Mon, 24 Aug 2020 00:12:22 +0200
+
 mdvl-conf-cli (1.0.5) stable; urgency=medium
 
   * Fix path to vifmrc.
