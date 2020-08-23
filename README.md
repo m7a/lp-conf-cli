@@ -299,6 +299,41 @@ endfunction
 The remainder of the file (not shown) is concerned with some GUI options to make
 terminal and `gvim` behave similarly (in case `gvim` is accidentally invoked).
 
+`vifmrc` -- File Manager Configuration
+======================================
+
+The Ma_Sys.ma configuration for `vifmrc` changes the original two-pane logic
+towards a slightly different model of use:
+
+ * By setting `syncregs`, all `vifm` instances share the same set of registers
+   and it becomes possible to yank and paste seamlessly across multiple
+   instances.
+ * Keyinbding `öw` for “new window” duplicates the current instance (i.e. starts
+   a new instance in the same directory)
+ * All instances run on `:only` i.e. the normally two-pane file manager is
+   reduced to show only one pane.
+ * Borders are reduced to a minimum such that even a tiny 41x11 terminal can
+   be used to browse directories and selet places to paste files to etc.
+
+Combining these features allows starting with a single instance and then opening
+and closing new instances as one continues the file management process. This
+variant blends well with the quick startup time of vifm and the capabilities of
+(tiling) window managers to allow keeping track of many windows.
+
+Unlike two-pane workflows, there is no need to strictly have at most two panes
+at the same time -- three windows may be open and copying across all three can
+happen as needed. Additionally, unlike tab-based workflows windows are only
+hidden if the window manager commands it. Bonus: Sometimes one wants to just
+quick and dirty switch to a different directory, be it for pasting or for
+checking something different than the current work was about. In this case, the
+second pane of the originally two-pane file manager is still active (although
+hidden) and can be switched to at any time using the [TAB] key.
+
+To summarize: A lot of flexiblity by using a probably uncommon configuration.
+Some excerpts with details of the configuration file follow:
+
+_TODO DOCUMENTATION TO BE CONTINUED HERE / ALSO ADD SOME BEFORE|AFTER SCREESHOTS_
+
 System-Wide Configuration
 =========================
 
