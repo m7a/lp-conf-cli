@@ -1,0 +1,89 @@
+" Ma_Sys.ma VIFMRC 3.1.5, Copyright (c) 2013, 2017, 2018, 2020 Ma_Sys.ma.
+" For further info send an e-mail to Ma_Sys.ma@web.de.
+
+" -- General Settings --
+set sortnumbers
+set timefmt=%d.%m.%y\ %H:%M:%S
+set wildmenu
+set hlsearch
+set scrolloff=4
+set sort=+fileext
+set tuioptions=p
+set confirm=permdelete
+set dotdirs=
+set iec
+set vifminfo=bookmarks,bmarks,registers
+set syncregs=syncregs
+
+" TODO statusline?
+
+if has('unix')
+	set trashdir=$HOME/ranger_trash
+endif
+
+" -- Color Changes --
+" alt. blue
+"highlight Border ctermbg=black
+"highlight StatusLine cterm=none ctermfg=black ctermbg=13
+"highlight TopLine cterm=none ctermfg=black ctermbg=13
+"highlight TopLineSel cterm=none ctermfg=black ctermbg=13
+highlight Border ctermbg=black
+highlight StatusLine cterm=none ctermfg=white ctermbg=17
+highlight TopLine cterm=none ctermfg=lightwhite ctermbg=17
+highlight TopLineSel cterm=none ctermfg=lightwhite ctermbg=17
+
+" -- Extensions --
+filetype *.html,*.xhtml,*.xml,*.svg firefox %c 2>&1 > /dev/null &
+filetype *.xcf,*.dds gimp %c 2>&1 > /dev/null &
+filetype *.pcap,*.eth wireshark %c &
+filetype *.uxf umlet %c 2>&1 > /dev/null &
+filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c &
+if has('unix')
+	filetype *.sc sc-im %c
+	filetype *.ppm,*.png,*.jpg,*.tga,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
+	filetype *.webm,*.mov,*.flv,*.3gp,*.ogv,*.mp4 /usr/bin/mpv %c 2>&1 > /dev/null &
+	filetype *.mp3,*.wav,*.ogg /usr/bin/mocp %c
+	filetype *.rpm,*.gz,*.bz2,*.txz,*.tgz,*.bz2,*.7z,*.zip,*.tar,*.jar,*.rar,*.deb,*.iso,*.xz xarchiver %c 2>&1 > /dev/null &
+	filetype *.pdf,*.ps,*.eps,*.pdf.gz zathura %c 2>&1 > /dev/null &
+endif
+
+" -- Marks --
+if has('unix')
+	mark e /fs/e01
+	mark l /fs/ll
+	mark d /data/main
+	mark h /home/linux-fan
+	mark M /mnt
+	mark m /media
+	mark p /data/programs
+	mark T /tmp
+endif
+
+" -- Ma_Sys.ma Commands --
+command make !make
+if has('unix')
+	command thunar !thunar &
+	command extract !atool -x %c &
+	command mount !/usr/share/mdvl-vifm-ext/mavifmext_reduced.sh mount
+	command umount !/usr/share/mdvl-vifm-ext/mavifmext_reduced.sh umount %c
+endif
+
+" -- Ma_Sys.ma Mappings --
+if has('unix')
+	nmap ö0 :!tmux splitw -h -c %d vim\ %f<cr>
+	nmap ö1 :!materm -e vim %f &<cr>
+	nmap öc :!tmux new-window -c %d bash<cr>
+	nmap öd :!materm -e dhex %f &<cr>
+	nmap öf :!tmux new-window -c %d vim\ %f<cr>
+	nmap öj :!jedit %f &<cr>
+	nmap öl :!leafpad %f &<cr>
+	nmap ön :!ma_new_file<cr>
+	nmap öp :!plan_view.py &<cr>
+	nmap öq :!ma_plan_view_feh 2>&1 > /dev/null &<cr>
+	nmap öt :!materm &<cr>
+	nmap öv :!tmux splitw -h -c %d bash<cr>
+	nmap öw :!materm -e /usr/bin/vifm &<cr>
+endif
+
+" -- Autostart --
+only
