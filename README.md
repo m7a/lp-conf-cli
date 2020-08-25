@@ -388,7 +388,7 @@ filetype *.uxf umlet %c 2>&1 > /dev/null &
 filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c &
 if has('unix')
 	filetype *.sc sc-im %c
-	filetype *.ppm,*.png,*.jpg,*.tga,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
+	filetype *.ppm,*.png,*.jpg,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
 	filetype *.webm,*.mov,*.flv,*.3gp,*.ogv,*.mp4 /usr/bin/mpv %c 2>&1 > /dev/null &
 	filetype *.mp3,*.wav,*.ogg /usr/bin/mocp %c
 	filetype *.rpm,*.gz,*.bz2,*.txz,*.tgz,*.bz2,*.7z,*.zip,*.tar,*.jar,*.rar,*.deb,*.iso,*.xz xarchiver %c 2>&1 > /dev/null &
