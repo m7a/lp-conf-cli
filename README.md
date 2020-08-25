@@ -6,7 +6,7 @@ date: 2020/08/23 00:46:15
 lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "conf", "dotfiles", "cli", "package"]
-x-masysma-version: 1.0.0
+x-masysma-version: 1.0.1
 x-masysma-repository: https://www.github.com/m7a/lp-conf-cli
 x-masysma-website: https://masysma.lima-city.de/32/conf-cli.xhtml
 x-masysma-owned: 1
@@ -332,7 +332,123 @@ hidden) and can be switched to at any time using the [TAB] key.
 To summarize: A lot of flexiblity by using a probably uncommon configuration.
 Some excerpts with details of the configuration file follow:
 
-_TODO DOCUMENTATION TO BE CONTINUED HERE / ALSO ADD SOME BEFORE|AFTER SCREESHOTS_
+## General Settings
+
+~~~
+set sortnumbers
+set timefmt=%d.%m.%y\ %H:%M:%S
+set wildmenu
+set hlsearch
+set scrolloff=4
+set sort=+fileext
+set tuioptions=p
+set confirm=permdelete
+set dotdirs=
+set iec
+set vifminfo=bookmarks,bmarks,registers
+set syncregs=syncregs
+
+if has('unix')
+	set trashdir=$HOME/ranger_trash
+endif
+~~~
+
+Enables some sane configuration defaults like date and time format, default
+sorting order, units to use, and configures a directory for deleted files
+`$HOME/ranger_trash`. The name is due to the fact that previously, Ma_Sys.ma
+systems used
+[ranger(1)](https://manpages.debian.org/buster/ranger/ranger.1.en.html)
+instead of vifm.
+
+## Colorscheme
+
+![Screeshot of an unmodified/default `vifm` configuration](conf-cli_att/scrvifmdefault.png)
+
+![Screeshot of the Ma_Sys.ma `vifm` configuration presented here](conf-cli_att/scrvifmtheme.png)
+
+The Ma_Sys.ma colorscheme is configured by the following settings:
+
+~~~
+highlight Border ctermbg=black
+highlight StatusLine cterm=none ctermfg=white ctermbg=17
+highlight TopLine cterm=none ctermfg=lightwhite ctermbg=17
+highlight TopLineSel cterm=none ctermfg=lightwhite ctermbg=17
+~~~
+
+Check the screenshots to see the difference between the default colorscheme and
+configuration vs. the changes by the Ma_Sys.ma `vifmrc`.
+
+## File Types
+
+~~~
+filetype *.html,*.xhtml,*.xml,*.svg firefox %c 2>&1 > /dev/null &
+filetype *.xcf,*.dds gimp %c 2>&1 > /dev/null &
+filetype *.pcap,*.eth wireshark %c &
+filetype *.uxf umlet %c 2>&1 > /dev/null &
+filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c &
+if has('unix')
+	filetype *.sc sc-im %c
+	filetype *.ppm,*.png,*.jpg,*.tga,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
+	filetype *.webm,*.mov,*.flv,*.3gp,*.ogv,*.mp4 /usr/bin/mpv %c 2>&1 > /dev/null &
+	filetype *.mp3,*.wav,*.ogg /usr/bin/mocp %c
+	filetype *.rpm,*.gz,*.bz2,*.txz,*.tgz,*.bz2,*.7z,*.zip,*.tar,*.jar,*.rar,*.deb,*.iso,*.xz xarchiver %c 2>&1 > /dev/null &
+	filetype *.pdf,*.ps,*.eps,*.pdf.gz zathura %c 2>&1 > /dev/null &
+endif
+~~~
+
+Configures typical MDVL applications to open files of various types. The first
+part of the definitions is intended to also work on Windows systems if the
+respective applications are in `%PATH%`.
+
+## Custom Commands
+
+~~~
+command make !make
+if has('unix')
+	command thunar !thunar &
+	command extract !atool -x %c &
+	command mount !/usr/bin/mavifmext_reduced.sh mount
+	command umount !/usr/bin/mavifmext_reduced.sh umount %c
+endif
+~~~
+
+The Ma_Sys.ma commands integrate shortcuts for `make`, `thunar` and archive
+extraction alongside with a link to a terminal user interface to `ma_mount`.
+
+_TODO `ma_mount` is not online yet, link it from here once it is online_
+
+## Custom Mappings
+
+~~~
+nmap ö0 :!tmux splitw -h -c %d vim\ %f<cr>
+nmap ö1 :!materm -e vim %f &<cr>
+nmap öc :!tmux new-window -c %d bash<cr>
+nmap öd :!materm -e dhex %f &<cr>
+nmap öf :!tmux new-window -c %d vim\ %f<cr>
+nmap öj :!jedit %f &<cr>
+nmap öl :!leafpad %f &<cr>
+nmap ön :!ma_new_file<cr>
+nmap öp :!plan_view.py &<cr>
+nmap öq :!ma_plan_view_feh 2>&1 > /dev/null &<cr>
+nmap öt :!materm &<cr>
+nmap öv :!tmux splitw -h -c %d bash<cr>
+nmap öw :!materm -e /usr/bin/vifm &<cr>
+~~~
+
+The mappings provide quick access to various applications:
+
+Applications       Run on GUI  Run on tmux
+-----------------  ----------  -----------
+vim                ö1          ö0, öf
+Terminal           öt          öc, öv
+GUI Editors        öj, öl      --
+dhex (Hex Editor)  öd          --
+Image Viewers      öp, öq      --
+
+Shortcut `öw` “duplicates” the current vifm instance to support the workflow
+described in the introduction. `ön` integrates with `ma_new_file`.
+
+_TODO `ma_new_file` is not online yet, link it from here once it is online_
 
 System-Wide Configuration
 =========================
