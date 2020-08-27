@@ -30,6 +30,7 @@ papersize.mdvl /etc
 helpful_issue /usr/share/mdvl-conf-cli
 tmux.conf /etc
 vifmrc /etc/vifm
+htoprc /etc
 </property>
 <property name="mdpc.file.displace">
 etc/default/smartmontools.mdvl

@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.7) stable; urgency=medium
+
+  * Add /etc/htoprc (formerly in mdvl-conf-skel)
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Thu, 27 Aug 2020 02:25:08 +0200
+
 mdvl-conf-cli (1.0.6) stable; urgency=medium
 
   * Change path to mavifmext_reduced.sh
