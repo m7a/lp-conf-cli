@@ -450,6 +450,20 @@ described in the introduction. `ön` integrates with `ma_new_file`.
 
 _TODO `ma_new_file` is not online yet, link it from here once it is online_
 
+`htoprc` -- Process Viewer Configuration
+========================================
+
+The two major changes of the Ma_Sys.ma `htoprc` vs. the default configuraiton
+are as follows:
+
+ 1. Threads are no longer displayed as indivdual entries.
+    This _greatly_ simplifies the list.
+ 2. The initial view shows the process tree rather than table.
+
+![Default htop configuration](conf-cli_att/scrhtopdefault.png)
+
+![Htop configuration provided here](conf-cli_att/scrhtoprc.png)
+
 System-Wide Configuration
 =========================
 
