@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.8) stable; urgency=medium
+
+  * Add alias scripts svg2pdf and ma_xclock.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sun, 13 Sep 2020 18:24:47 +0200
+
 mdvl-conf-cli (1.0.7) stable; urgency=medium
 
   * Add /etc/htoprc (formerly in mdvl-conf-skel)

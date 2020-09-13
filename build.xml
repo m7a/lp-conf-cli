@@ -7,7 +7,7 @@
 <property name="mdpc.section"       value="admin"/>
 <property name="mdpc.arch"          value="all"/>
 <property name="mdpc.depends"       value="mdvl-syssheet"/>
-<property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215), mdvl-scripts (&lt;= 1.0.373)"/>
+<property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215), mdvl-scripts (&lt;= 1.0.376)"/>
 <property name="mdpc.descrs"        value="MDVL Basic CLI Configuration Package"/>
 <property name="mdpc.bdep"          value="config-package-dev"/>
 <property name="mdpc.file.install">
@@ -16,6 +16,8 @@ materm_white /usr/bin
 ctrlc /usr/bin
 ctrlv /usr/bin
 rsync_ma /usr/bin
+ma_xclock /usr/bin
+svg2pdf /usr/bin
 99masysma.conf /etc/apt/apt.conf.d
 smartmontools.mdvl /etc/default
 masysma-intel-virtualization.conf /etc/modprobe.d

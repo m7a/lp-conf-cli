@@ -41,14 +41,19 @@ The following scripts are part of this package:
     They can be pasted in some GUI applications with [CTRL]-[V].
 `ctrlv`
 :   Pastes data from the clipboard to stdout using `xclip`.
-`rsync_ma`
-:   Invokes `rsync` with useful parameters for synchronization:
-    `-vrlpEogDtS --delete --delete-after --stats -h --progress -i`
+`ma_xclock`
+:   Invokes `xclock` with digital time, `d.m.Y H:M:S` format and Terminus font.
 `materm`
 :   Invokes `urxvt` with sane defaults.
 `materm_white`
 :   Invokes `urxvt` with dark font on white background and extra-large font
     size (useful for presentations or working in sunlight).
+`rsync_ma`
+:   Invokes `rsync` with useful parameters for synchronization:
+    `-vrlpEogDtS --delete --delete-after --stats -h --progress -i`
+`svg2pdf`
+:   Invokes [rsvg-convert(1)](https://manpages.debian.org/buster/librsvg2-bin/rsvg-convert.1.en.html)
+    from package `librsvg2-bin` to convert an SVG to PDF.
 
 `masysma_bashrc.sh` -- Ma_Sys.ma `.bashrc` configuration
 ========================================================
@@ -414,8 +419,7 @@ endif
 
 The Ma_Sys.ma commands integrate shortcuts for `make`, `thunar` and archive
 extraction alongside with a link to a terminal user interface to `ma_mount`.
-
-_TODO `ma_mount` is not online yet, link it from here once it is online_
+See [vifm-ext(32)](vifm-ext.xhtml) for details on `ma_mount`.
 
 ## Custom Mappings
 

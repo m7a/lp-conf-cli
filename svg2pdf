@@ -1,0 +1,10 @@
+#!/bin/sh -e
+# Ma_Sys.ma svg2pdf, Copyright (c) 2014 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+if [ $# != 2 ]; then
+	echo Usage svg2pdf in out
+	exit 1
+else
+	exec rsvg-convert -f pdf "$1" -o "$2"
+fi

@@ -1,0 +1,6 @@
+#!/bin/sh -e
+# Ma_Sys.ma XClock Commandline 1.0.0.0, Copyright (c) 2016 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+exec xclock -digital -strftime '%d.%m.%Y %H:%M:%S' -fn "terminus-bold-16" \
+		-face terminus-bold-16 -bg black -fg white -update 1 -twentyfour
