@@ -101,6 +101,8 @@ alias journalctl="journalctl --no-pager"
 alias systemctl="systemctl -l --no-pager"
 [ ! -f "$JAVA_HOME/bin/java" ] || alias java="$JAVA_HOME/bin/java"
 alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
+# Memory may serve z_cmdcolors but colortest-16b is easily forgotten...
+alias z_cmdcolors=colortest-16b
 
 # ========================================= MDVL SIMPLE LOGIN MANAGER AND END ==
 # MDVL _simple_ login manager. Login on tty1 automatically runs startx.

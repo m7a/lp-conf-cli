@@ -155,6 +155,7 @@ alias sysus="systemctl --no-pager --user"
 alias journalctl="journalctl --no-pager"
 alias systemctl="systemctl --no-pager -l"
 alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
+alias z_cmdcolors=colortest-16b
 ~~~
 
 `ls` and `grep`
@@ -170,6 +171,13 @@ alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
     (see <https://bugzilla.redhat.com/show_bug.cgi?id=768601>).
 `7z_ma`
 :   Provide quick access to better compression with 7z.
+`z_cmdcolors`
+:   Alternative name for `colortest-16b`. Previously, script
+    `colortools-system-gyw` was available under name `z_cmdcolors`. However,
+    its license seems to be unclear, thus MDVL systems will now invoke
+    `colortest-16b` from package `colortest` (which is in Debian).
+    See <https://github.com/pvinis/colortools> for the source code for
+    `colortools-system-gyw` if interested.
 
 ## MDVL Simple Login Manager
 
