@@ -35,6 +35,7 @@ vifmrc /etc/vifm
 htoprc /etc
 etc-skel/.bash_profile /etc/skel
 etc-skel/.bashrc.mdvl /etc/skel
+etc-skel/.dhexrc /etc/skel
 </property>
 <property name="mdpc.file.displace">
 etc/default/smartmontools.mdvl
