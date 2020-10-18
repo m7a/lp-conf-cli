@@ -1,0 +1,5 @@
+[ -n "$PS1" ] || return 0
+
+for i in /etc/profile.d/*.sh; do
+	. "$i"
+done

@@ -7,7 +7,7 @@
 <property name="mdpc.section"       value="admin"/>
 <property name="mdpc.arch"          value="all"/>
 <property name="mdpc.depends"       value="mdvl-syssheet"/>
-<property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215), mdvl-scripts (&lt;= 1.0.376)"/>
+<property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215), mdvl-scripts (&lt;= 1.0.376), mdvl-conf-skel (&lt;= 1.0.70)"/>
 <property name="mdpc.descrs"        value="MDVL Basic CLI Configuration Package"/>
 <property name="mdpc.bdep"          value="config-package-dev"/>
 <property name="mdpc.file.install">
@@ -33,6 +33,8 @@ helpful_issue /usr/share/mdvl-conf-cli
 tmux.conf /etc
 vifmrc /etc/vifm
 htoprc /etc
+etc-skel/.bash_profile /etc/skel
+etc-skel/.bashrc.mdvl /etc/skel
 </property>
 <property name="mdpc.file.displace">
 etc/default/smartmontools.mdvl
@@ -40,6 +42,7 @@ etc/subversion/config.mdvl
 etc/systemd/logind.conf.mdvl
 etc/vim/vimrc.mdvl
 etc/papersize.mdvl
+etc/skel/.bashrc.mdvl
 </property>
 <property name="mdpc.descrl">
  This package contains configuration files for commandline systems.

@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.10) stable; urgency=medium
+
+  * Add bashrc configuration for /etc/skel.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sun, 18 Oct 2020 14:11:21 +0200
+
 mdvl-conf-cli (1.0.9) stable; urgency=medium
 
   * Add z_cmdcolors alias and document it.
