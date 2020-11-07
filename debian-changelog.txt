@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.12) stable; urgency=medium
+
+  * Attempt to disable mouse in vimrc as to re-enable proper pasting?
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Sat, 07 Nov 2020 22:28:00 +0100
+
 mdvl-conf-cli (1.0.11) stable; urgency=medium
 
   * Add dhexrc (may workaround bug wrt. the initialization routine on Debian)
