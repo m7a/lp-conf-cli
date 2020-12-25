@@ -1,0 +1,16 @@
+#!/bin/sh -e
+# Ma_Sys.ma CPY URL 1.0.0, Copyright (c) 2019 Ma_Sys.ma.
+# For further info send an e-mail to Ma_Sys.ma@web.de.
+
+if [ "$1" = --help ]; then
+	head -n 3 | tail -n 2 | cut -c 3-
+	echo
+	cat <<EOF
+Receives URL of multiple lines and with spaces through stdin and outputs a
+single-line variant as well as copies it with ctrlc.
+EOF
+fi
+
+url="$(tr -d ' \r\n')"
+printf %s     "$url" | ctrlc
+printf "%s\n" "$url"

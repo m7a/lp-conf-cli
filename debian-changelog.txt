@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.13) stable; urgency=medium
+
+  * Include alias-style script `ma_cpyurl`.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Fri, 25 Dec 2020 18:08:51 +0100
+
 mdvl-conf-cli (1.0.12) stable; urgency=medium
 
   * Attempt to disable mouse in vimrc as to re-enable proper pasting?

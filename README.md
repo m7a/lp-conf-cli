@@ -41,6 +41,9 @@ The following scripts are part of this package:
     They can be pasted in some GUI applications with [CTRL]-[V].
 `ctrlv`
 :   Pastes data from the clipboard to stdout using `xclip`.
+`ma_cpyurl`
+:   Special invocation of `ctrlc` which removes newlines from inputs and
+    mirrors it to stdout. This is useful for copying broken URLs from e-mails.
 `ma_xclock`
 :   Invokes `xclock` with digital time, `d.m.Y H:M:S` format and Terminus font.
 `materm`
