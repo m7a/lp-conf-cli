@@ -461,9 +461,8 @@ dhex (Hex Editor)  öd          --
 Image Viewers      öp, öq      --
 
 Shortcut `öw` “duplicates” the current vifm instance to support the workflow
-described in the introduction. `ön` integrates with `ma_new_file`.
-
-_TODO `ma_new_file` is not online yet, link it from here once it is online_
+described in the introduction. `ön` integrates with `ma_new_file`,
+see [templates(32)](templates.xhtml) for details
 
 `htoprc` -- Process Viewer Configuration
 ========================================
