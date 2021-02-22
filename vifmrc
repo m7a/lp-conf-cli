@@ -1,4 +1,4 @@
-" Ma_Sys.ma VIFMRC 3.1.7, Copyright (c) 2013, 2017, 2018, 2020 Ma_Sys.ma.
+" Ma_Sys.ma VIFMRC 3.1.8, Copyright (c) 2013, 2017, 2018, 2020, 2021 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 " -- General Settings --
@@ -76,7 +76,7 @@ if has('unix')
 	nmap öd :!materm -e dhex %f &<cr>
 	nmap öf :!tmux new-window -c %d vim\ %f<cr>
 	nmap öj :!jedit %f &<cr>
-	nmap öl :!leafpad %f &<cr>
+	nmap öm :!mousepad %f &<cr>
 	nmap ön :!ma_new_file<cr>
 	nmap öp :!plan_view.py &<cr>
 	nmap öq :!ma_plan_view_feh 2>&1 > /dev/null &<cr>

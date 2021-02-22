@@ -11,7 +11,7 @@ x-masysma-repository: https://www.github.com/m7a/lp-conf-cli
 x-masysma-website: https://masysma.lima-city.de/32/conf-cli.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
-  Copyright (c) 2020 Ma_Sys.ma.
+  Copyright (c) 2020, 2021 Ma_Sys.ma.
   For further info send an e-mail to Ma_Sys.ma@web.de.
 ---
 Description
@@ -441,7 +441,7 @@ nmap öc :!tmux new-window -c %d bash<cr>
 nmap öd :!materm -e dhex %f &<cr>
 nmap öf :!tmux new-window -c %d vim\ %f<cr>
 nmap öj :!jedit %f &<cr>
-nmap öl :!leafpad %f &<cr>
+nmap öm :!mousepad %f &<cr>
 nmap ön :!ma_new_file<cr>
 nmap öp :!plan_view.py &<cr>
 nmap öq :!ma_plan_view_feh 2>&1 > /dev/null &<cr>
@@ -456,7 +456,7 @@ Applications       Run on GUI  Run on tmux
 -----------------  ----------  -----------
 vim                ö1          ö0, öf
 Terminal           öt          öc, öv
-GUI Editors        öj, öl      --
+GUI Editors        öj, öm      --
 dhex (Hex Editor)  öd          --
 Image Viewers      öp, öq      --
 

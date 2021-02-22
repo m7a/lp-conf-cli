@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.14) stable; urgency=medium
+
+  * Switch from `öl` -- leafpad to `öm` -- mousepad.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Tue, 23 Feb 2021 00:22:31 +0100
+
 mdvl-conf-cli (1.0.13) stable; urgency=medium
 
   * Include alias-style script `ma_cpyurl`.
