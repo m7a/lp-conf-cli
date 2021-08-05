@@ -1,4 +1,4 @@
-#!/bin/sh -e
-# CTRLC+CTRLV 1.0, Copyright (c) 2019 Ma_Sys.ma.
+#!/bin/bash -eu
+# CTRLC+CTRLV 1.1, Copyright (c) 2019, 2021 Ma_Sys.ma.
 # For further info send an e-mail to Ma_Sys.ma@web.de.
-exec xclip -selection clipboard
+tee >(xclip -selection clipboard) >(xclip -selection primary) > /dev/null
