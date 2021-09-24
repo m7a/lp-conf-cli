@@ -6,7 +6,7 @@ date: 2020/08/23 00:46:15
 lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "conf", "dotfiles", "cli", "package"]
-x-masysma-version: 1.0.1
+x-masysma-version: 1.0.2
 x-masysma-repository: https://www.github.com/m7a/lp-conf-cli
 x-masysma-website: https://masysma.lima-city.de/32/conf-cli.xhtml
 x-masysma-owned: 1
@@ -76,10 +76,10 @@ export LINES
 export COLUMNS
 sheetpid=
 if [ -z "$MAEM_RES" ]; then
-	/usr/bin/syssheet -f & # Syssheet is slow => Parallelization is good
-	sheetpid=$!
+        /usr/bin/syssheet -f & # Syssheet is slow => Parallelization is good
+        sheetpid=$!
 else
-	sheetpid=-1
+        sheetpid=-1
 fi
 ~~~
 
@@ -109,15 +109,15 @@ set -o vi
 ma_host_tmp="$(who -m | cut -d "(" -f 2 | tr -d ")" | cut -d "." -f 1)"
 ma_tty_tmp="$(echo $ma_host_tmp | cut -d " " -f 2 | cut -c -3)"
 if [ -e /.dockerenv ] || { [ -x /usr/bin/ischroot ] && ischroot; }; then
-	# container
-	export PS1='\[\033[36;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
+        # container
+        export PS1='\[\033[36;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
 elif [ -z "$ma_host_tmp" -o "$ma_host_tmp" = ":0" -o \
-					"$ma_tty_tmp" = "tty" ]; then
-	# local
-	export PS1='\[\033[33;40;1m\]\w\$\[\033]0;\w\$\007\033[00m\] '
+                                        "$ma_tty_tmp" = "tty" ]; then
+        # local
+        export PS1='\[\033[33;40;1m\]\w\$\[\033]0;\w\$\007\033[00m\] '
 else
-	# remote
-	export PS1='\[\033[31;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
+        # remote
+        export PS1='\[\033[31;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
 fi
 ~~~
 
@@ -186,21 +186,21 @@ alias z_cmdcolors=colortest-16b
 
 ~~~{.bash}
 if [ -z "$DISPLAY" -a -z "$MAEMR_RES" -a "$(tty)" = "/dev/tty1" -a \
-							"$(id -u)" != 0 ]; then
-	unset sheetpid
-	unset sleeppid
-	unset LINES
-	unset COLUMNS
-	# Prevent ck-launch blah to fail automounting when using startx...
-	export GDMSESSION=masysma
-	# invoke on the same VT to mitigate potential security issues
-	exec /usr/bin/startx -- vt1 2> /dev/null > /dev/null
+                                                        "$(id -u)" != 0 ]; then
+        unset sheetpid
+        unset sleeppid
+        unset LINES
+        unset COLUMNS
+        # Prevent ck-launch blah to fail automounting when using startx...
+        export GDMSESSION=masysma
+        # invoke on the same VT to mitigate potential security issues
+        exec /usr/bin/startx -- vt1 2> /dev/null > /dev/null
 elif [ $sheetpid != -1 ]; then
-	( sleep 3 && kill $sheetpid ) 2>&1 > /dev/null & sleeppid=$!
-	disown
-	wait $sheetpid
-	kill -s TERM $sleeppid 2> /dev/null
-	echo
+        ( sleep 3 && kill $sheetpid ) 2>&1 > /dev/null & sleeppid=$!
+        disown
+        wait $sheetpid
+        kill -s TERM $sleeppid 2> /dev/null
+        echo
 fi
 ~~~
 
@@ -259,7 +259,7 @@ set laststatus=2
 " disable bells
 set vb t_vb=
 " http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-
-" 								performance
+"                                                                 performance
 set nocursorcolumn
 set nocursorline
 ~~~
@@ -271,8 +271,8 @@ highlighted:
 
 ~~~
 if exists("+colorcolumn")
-	set colorcolumn=80
-	hi ColorColumn ctermbg=DarkBlue
+        set colorcolumn=80
+        hi ColorColumn ctermbg=DarkBlue
 endif
 ~~~
 
@@ -293,7 +293,7 @@ for line numbers, they are visually well-distinguishable from the actual source
 code.
 
 In theory, displaying line numbers should also change as the window size
-chagnes, but despite being a good heuristics, it does not always work as
+changes, but despite being a good heuristics, it does not always work as
 expected...
 
 ~~~
@@ -302,13 +302,13 @@ set nonumber
 highlight LineNr cterm=NONE ctermbg=DarkGray ctermfg=White
 
 " http://stackoverflow.com/questions/13093289/gvim-dynamically-change-font-
-" 							based-on-window-size
+"                                                         based-on-window-size
 function MaAutomaticLineNumbers()
-	if winwidth(0) > 86
-		set number
-	else
-		set nonumber
-	endif
+        if winwidth(0) > 86
+                set number
+        else
+                set nonumber
+        endif
 endfunction
 ~~~
 
@@ -365,7 +365,7 @@ set vifminfo=bookmarks,bmarks,registers
 set syncregs=syncregs
 
 if has('unix')
-	set trashdir=$HOME/ranger_trash
+        set trashdir=$HOME/ranger_trash
 endif
 ~~~
 
@@ -403,12 +403,12 @@ filetype *.pcap,*.eth wireshark %c &
 filetype *.uxf umlet %c 2>&1 > /dev/null &
 filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c &
 if has('unix')
-	filetype *.sc sc-im %c
-	filetype *.ppm,*.png,*.jpg,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
-	filetype *.webm,*.mov,*.flv,*.3gp,*.ogv,*.mp4 /usr/bin/mpv %c 2>&1 > /dev/null &
-	filetype *.mp3,*.wav,*.ogg /usr/bin/mocp %c
-	filetype *.rpm,*.gz,*.bz2,*.txz,*.tgz,*.bz2,*.7z,*.zip,*.tar,*.jar,*.rar,*.deb,*.iso,*.xz xarchiver %c 2>&1 > /dev/null &
-	filetype *.pdf,*.ps,*.eps,*.pdf.gz zathura %c 2>&1 > /dev/null &
+        filetype *.sc sc-im %c
+        filetype *.ppm,*.png,*.jpg,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
+        filetype *.webm,*.mov,*.flv,*.3gp,*.ogv,*.mp4 /usr/bin/mpv %c 2>&1 > /dev/null &
+        filetype *.mp3,*.wav,*.ogg /usr/bin/mocp %c
+        filetype *.rpm,*.gz,*.bz2,*.txz,*.tgz,*.bz2,*.7z,*.zip,*.tar,*.jar,*.rar,*.deb,*.iso,*.xz xarchiver %c 2>&1 > /dev/null &
+        filetype *.pdf,*.ps,*.eps,*.pdf.gz zathura %c 2>&1 > /dev/null &
 endif
 ~~~
 
@@ -421,10 +421,10 @@ respective applications are in `%PATH%`.
 ~~~
 command make !make
 if has('unix')
-	command thunar !thunar &
-	command extract !atool -x %c &
-	command mount !/usr/bin/mavifmext_reduced.sh mount
-	command umount !/usr/bin/mavifmext_reduced.sh umount %c
+        command thunar !thunar &
+        command extract !atool -x %c &
+        command mount !/usr/bin/mavifmext_reduced.sh mount
+        command umount !/usr/bin/mavifmext_reduced.sh umount %c
 endif
 ~~~
 

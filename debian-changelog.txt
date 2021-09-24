@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.16) stable; urgency=medium
+
+  * Fix command display in documentation. Fix regression in ctrlc.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Fri, 24 Sep 2021 21:49:51 +0200
+
 mdvl-conf-cli (1.0.15) stable; urgency=medium
 
   * Improve ctrlc to copy to both of the clipboards.
