@@ -1,4 +1,4 @@
-" Ma_Sys.ma VIFMRC 3.1.8, Copyright (c) 2013, 2017, 2018, 2020, 2021 Ma_Sys.ma.
+" Ma_Sys.ma VIFMRC 3.1.9, Copyright (c) 2013, 2017, 2018, 2020, 2021 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 " -- General Settings --
@@ -37,7 +37,7 @@ filetype *.html,*.xhtml,*.xml,*.svg firefox %c 2>&1 > /dev/null &
 filetype *.xcf,*.dds gimp %c 2>&1 > /dev/null &
 filetype *.pcap,*.eth wireshark %c &
 filetype *.uxf umlet %c 2>&1 > /dev/null &
-filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c &
+filetype *.odf,*.odg,*.odx,*.doc,*.docx,*.doc,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.odt libreoffice %c 2>&1 > /dev/null &
 if has('unix')
 	filetype *.sc sc-im %c
 	filetype *.ppm,*.png,*.jpg,*.tiff,*.ico,*.gif,*.svg,*.xpm,*.jpeg,*.pnm,*.bmp,*.tga ma_plan_view_feh %c 2>&1 > /dev/null &
@@ -75,10 +75,10 @@ if has('unix')
 	nmap öc :!tmux new-window -c %d bash<cr>
 	nmap öd :!materm -e dhex %f &<cr>
 	nmap öf :!tmux new-window -c %d vim\ %f<cr>
-	nmap öj :!jedit %f &<cr>
-	nmap öm :!mousepad %f &<cr>
+	nmap öj :!jedit %f 2>&1 > /dev/null &<cr>
+	nmap öm :!mousepad %f 2>&1 > /dev/null &<cr>
 	nmap ön :!ma_new_file<cr>
-	nmap öp :!plan_view.py &<cr>
+	nmap öp :!plan_view.py 2>&1 > /dev/null &<cr>
 	nmap öq :!ma_plan_view_feh 2>&1 > /dev/null &<cr>
 	nmap öt :!materm &<cr>
 	nmap öv :!tmux splitw -h -c %d bash<cr>
