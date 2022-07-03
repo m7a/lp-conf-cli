@@ -1,5 +1,5 @@
-" Customized Ma_Sys.ma VIMRC 1.0.25,
-" Copyright (c) 2013--2015, 2017, 2019 Ma_Sys.ma.
+" Customized Ma_Sys.ma VIMRC 1.0.26,
+" Copyright (c) 2013--2015, 2017, 2019, 2022 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 runtime! debian.vim
@@ -16,6 +16,7 @@ if has("syntax")
 	syntax on
 	syntax sync minlines=256
 	autocmd BufNewFile,BufRead *.ma setfiletype masysma_note
+	autocmd BufNewFile,BufRead *.hot setfiletype Markdown
 endif
 
 set background=dark
