@@ -16,7 +16,7 @@ if has("syntax")
 	syntax on
 	syntax sync minlines=256
 	autocmd BufNewFile,BufRead *.ma setfiletype masysma_note
-	autocmd BufNewFile,BufRead *.hot setfiletype Markdown
+	autocmd BufNewFile,BufRead *.hot setfiletype markdown
 endif
 
 set background=dark
