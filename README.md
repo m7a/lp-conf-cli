@@ -8,7 +8,7 @@ author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "conf", "dotfiles", "cli", "package"]
 x-masysma-version: 1.0.2
 x-masysma-repository: https://www.github.com/m7a/lp-conf-cli
-x-masysma-website: https://masysma.lima-city.de/32/conf-cli.xhtml
+x-masysma-website: https://masysma.net/32/conf-cli.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2020, 2021 Ma_Sys.ma.

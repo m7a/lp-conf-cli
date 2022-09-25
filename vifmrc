@@ -1,4 +1,4 @@
-" Ma_Sys.ma VIFMRC 3.1.9, Copyright (c) 2013, 2017, 2018, 2020, 2021 Ma_Sys.ma.
+" Ma_Sys.ma VIFMRC 3.1.10, Copyright (c) 2013, 2017, 2018, 2020-2022 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 " -- General Settings --
@@ -34,6 +34,7 @@ highlight TopLineSel cterm=none ctermfg=lightwhite ctermbg=17
 
 " -- Extensions --
 filetype *.html,*.xhtml,*.xml,*.svg firefox %c 2>&1 > /dev/null &
+filetype *.war firefox "jar:file://$(pwd)/%c!/index.html" 2>&1 > /dev/null &
 filetype *.xcf,*.dds gimp %c 2>&1 > /dev/null &
 filetype *.pcap,*.eth wireshark %c &
 filetype *.uxf umlet %c 2>&1 > /dev/null &

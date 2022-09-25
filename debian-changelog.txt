@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.21) stable; urgency=medium
+
+  * Update htoprc, vifmrc
+
+ -- Ma_Sys.ma Linux-Fan <info@masysma.net>  Sun, 25 Sep 2022 17:12:47 +0200
+
 mdvl-conf-cli (1.0.20) stable; urgency=medium
 
   * Fix spelling Markdown -> markdown.
