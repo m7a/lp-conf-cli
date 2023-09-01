@@ -57,9 +57,7 @@ etc/skel/.bashrc.mdvl
 </property>
 
 <!-- CI INTEGRATION -->
-<target name="package_triggered" depends="package">
-	<property name="masysma.ci.trigger" value="newver"/>
-</target>
+<target name="autoci" depends="autopackage"/>
 
 <!-- CONST TPL IMPORT -->
 <property environment="env"/>
