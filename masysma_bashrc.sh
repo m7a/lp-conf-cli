@@ -90,16 +90,14 @@ export CLASSPATH="$CLASSPATH:/usr/share/java/vecmath.jar"
 alias ls="/bin/ls --color=auto -h"
 # cf. http://www.commandlinefu.com/commands/view/1892/vi-keybindings-with-info
 alias info="/usr/bin/info --vi-keys"
-#alias reboot="/usr/bin/mahalt -r"
-#alias halt="/usr/bin/mahalt"
-#alias poweroff="/usr/bin/mahalt"
 alias maxima="/usr/bin/maxima -q"
 alias grep="grep --color=auto"
 alias sysus="systemctl --no-pager --user"
+alias mpv="mpv --no-audio-display"
 # disable pagers
 alias journalctl="journalctl --no-pager"
 alias systemctl="systemctl -l --no-pager"
-[ ! -f "$JAVA_HOME/bin/java" ] || alias java="$JAVA_HOME/bin/java"
+[ ! -x "$JAVA_HOME/bin/java" ] || alias java="$JAVA_HOME/bin/java"
 alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
 # Memory may serve z_cmdcolors but colortest-16b is easily forgotten...
 alias z_cmdcolors=colortest-16b

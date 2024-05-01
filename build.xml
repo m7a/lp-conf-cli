@@ -9,7 +9,6 @@
 <property name="mdpc.depends"       value="mdvl-syssheet"/>
 <property name="mdpc.conflicts"     value="mdvl-conf (&lt;= 1.0.215), mdvl-scripts (&lt;= 1.0.386), mdvl-conf-skel (&lt;= 1.0.70)"/>
 <property name="mdpc.descrs"        value="MDVL Basic CLI Configuration Package"/>
-<property name="mdpc.bdep"          value="config-package-dev"/>
 <property name="mdpc.file.install">
 materm /usr/bin
 materm_white /usr/bin
