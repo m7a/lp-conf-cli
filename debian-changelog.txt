@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.23) stable; urgency=medium
+
+  * Colorize section header directories in VIFM
+
+ -- Ma_Sys.ma Linux-Fan <info@masysma.net>  Sat, 22 Feb 2025 21:33:04 +0100
+
 mdvl-conf-cli (1.0.22) stable; urgency=medium
 
   * Remove config-package-dev spec from build.xml

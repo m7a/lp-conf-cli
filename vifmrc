@@ -1,4 +1,4 @@
-" Ma_Sys.ma VIFMRC 3.1.10, Copyright (c) 2013, 2017, 2018, 2020-2022 Ma_Sys.ma.
+" Ma_Sys.ma VIFMRC 3.1.11 (c) 2013, 2017-2018, 2020-2022, 2025 Ma_Sys.ma.
 " For further info send an e-mail to Ma_Sys.ma@web.de.
 
 " -- General Settings --
@@ -31,6 +31,7 @@ highlight Border ctermbg=black
 highlight StatusLine cterm=none ctermfg=white ctermbg=17
 highlight TopLine cterm=none ctermfg=lightwhite ctermbg=17
 highlight TopLineSel cterm=none ctermfg=lightwhite ctermbg=17
+highlight /^.*___.*__/ ctermbg=54
 
 " -- Extensions --
 filetype *.html,*.xhtml,*.xml,*.svg firefox %c 2>&1 > /dev/null &
