@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.24) stable; urgency=medium
+
+  * Fix VIFM warnings on new Debian
+
+ -- Ma_Sys.ma Linux-Fan <info@masysma.net>  Tue, 06 May 2025 19:23:44 +0200
+
 mdvl-conf-cli (1.0.23) stable; urgency=medium
 
   * Colorize section header directories in VIFM

@@ -62,12 +62,12 @@ if has('unix')
 endif
 
 " -- Ma_Sys.ma Commands --
-command make !make
+command! make !make
 if has('unix')
-	command thunar !thunar &
-	command extract !atool -x %c &
-	command mount !/usr/bin/mavifmext_reduced.sh mount
-	command umount !/usr/bin/mavifmext_reduced.sh umount %c
+	command! thunar !thunar &
+	command! extract !atool -x %c &
+	command! mount !/usr/bin/mavifmext_reduced.sh mount
+	command! umount !/usr/bin/mavifmext_reduced.sh umount %c
 endif
 
 " -- Ma_Sys.ma Mappings --
