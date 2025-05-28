@@ -1,3 +1,9 @@
+mdvl-conf-cli (1.0.25) stable; urgency=medium
+
+  * Update bashrc
+
+ -- Ma_Sys.ma Linux-Fan <info@masysma.net>  Wed, 28 May 2025 21:48:53 +0200
+
 mdvl-conf-cli (1.0.24) stable; urgency=medium
 
   * Fix VIFM warnings on new Debian

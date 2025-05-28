@@ -1,5 +1,5 @@
-# Ma_Sys.ma Bashrc 2.0.2, Copyright (c) 2013-2017, 2019, 2020 Ma_Sys.ma.
-# For further info send an e-mail to Ma_Sys.ma@web.de
+# Ma_Sys.ma Bashrc 2.0.3
+# (c) 2013-2017, 2019, 2020, 2025 Ma_Sys.ma <info@masysma.net>
 
 [ -n "$PS1" ] || return # Terminate when not running interactively
 
@@ -16,8 +16,8 @@ fi
 
 # ====================================================== BASIC SHELL SETTINGS ==
 HISTCONTROL=ignoredups:ignorespace
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=3000
+HISTFILESIZE=5000
 shopt -s histappend
 shopt -s checkwinsize
 
@@ -32,8 +32,11 @@ if [ -z "$MAEM_RES" ]; then
 	if [ -e /.dockerenv ] || { [ -x /usr/bin/ischroot ] && ischroot; }; then
 		# container
 		export PS1='\[\033[36;40;1m\]\H:\w\$\[\033]0;\H:\w\$\007\033[00m\] '
-	elif [ -z "$ma_host_tmp" -o "$ma_host_tmp" = ":0" -o \
-						"$ma_tty_tmp" = "tty" ]; then
+	elif [ "$(head -c 8 /etc/hostname 2> /dev/null)" = "vm-prod-" ]; then
+		# production VM magenta prompt
+		export PS1='\[\033[35;40;1m\]\w\$\[\033]0;\w\$\007\033[00m\] '
+	elif [ -z "$ma_host_tmp" ] || [ "$ma_host_tmp" = ":0" ] || \
+						[ "$ma_tty_tmp" = "tty" ]; then
 		# local
 		export PS1='\[\033[33;40;1m\]\w\$\[\033]0;\w\$\007\033[00m\] '
 	else
@@ -52,7 +55,6 @@ else
 fi
 
 # -> http://stackoverflow.com/questions/26524559/git-commands-execution-like-
-# 				git-diff-or-git-help-commit-returns-errors-abo
 export PAGER=/usr/bin/less
 
 # Vimpager for manpages
@@ -62,25 +64,16 @@ export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 	-c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
 	-c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
+# -> https://unix.stackexchange.com/questions/257061/gentoo-linux-gpg-encrypts-
+export GPG_TTY=$(tty)
+
 # ================================================================== SET PATH ==
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
-if [ -d "/usr/lib/mdvl-lejos-nxj" ]; then
-	export NXJ_HOME=/usr/lib/mdvl-lejos-nxj
-	export PATH="$PATH:$NXJ_HOME/bin"
-fi
 if [ -d "$HOME/.mdvl/user_bin" ]; then
 	export PATH="$PATH:$HOME/.mdvl/user_bin"
 fi
 
 # ====================================================================== JAVA ==
-arch="$(dpkg --print-architecture)"
-if [ -d "/usr/lib/jvm/java-6-openjdk" ]; then
-	export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
-elif [ -d "/usr/lib/jvm/java-7-openjdk-$arch" ]; then
-	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-$arch"
-elif [ -d "/usr/lib/jvm/java-8-openjdk-$arch" ]; then
-	export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-$arch"
-fi
 # Although this should be automatically imported, it is not and therefore the
 # files are listed here. Seems to be a bug (noted 02.2013).
 export CLASSPATH=.:/usr/share/java/j3dcore.jar:/usr/share/java/j3dutils.jar
@@ -97,7 +90,6 @@ alias mpv="mpv --no-audio-display"
 # disable pagers
 alias journalctl="journalctl --no-pager"
 alias systemctl="systemctl -l --no-pager"
-[ ! -x "$JAVA_HOME/bin/java" ] || alias java="$JAVA_HOME/bin/java"
 alias 7z_ma="/usr/bin/7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=64m -ms=2g -l"
 # Memory may serve z_cmdcolors but colortest-16b is easily forgotten...
 alias z_cmdcolors=colortest-16b
